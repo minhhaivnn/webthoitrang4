@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Túi Caro Xanh</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="navbar glass2">
+        <a href="/index.html">
+        <div class="logo">
+            <img src="anh1.jpg" alt="">
+        </div>
+        </a>
+        <div class="menu">
+            <a href="/index.html" class="nav-link">Trang chủ</a>
+            <a href="/introduction.html" class="nav-link">Giới thiệu</a>
+            <a href="/products.html" class="nav-link active">Sản phẩm</a>        
+        </div>
+        <div class="icons">
+            <a href="/login.html"><i class="fas fa-user"></i></a>
+        </div>
+    </div>   
+
+    <div class="container-prod">
+        <div class="left-section">
+            <img alt="Model wearing white sweatshirt" height="800" src="images/SanPham/tui/tui8.jpg" width="600"/>
+           </div>
+           <div class="right-section">
+            <div class="product-title">
+            Túi Caro Xanh
+            </div>
+            <div class="product-price">
+             <span id="price">150.000</span>đ
+            </div>
+            <div class="product-color">
+             Màu sắc giống như ảnh
+            </div>
+            <div class="size-options">
+             <div class="size-option" data-size="S" data-price="150000">S</div>
+             <div class="size-option" data-size="M" data-price="220000">M</div>
+            
+            </div>
+            <div class="buy-now">
+             MUA NGAY
+            </div>
+            <div class="product-description">
+                <h3>Mô tả chi tiết sản phẩm</h3>
+                <p>Váy ôm body là lựa chọn hoàn hảo cho những cô nàng yêu thích vẻ đẹp quyến rũ và nữ tính. Với thiết kế ôm sát, chiếc váy này tôn lên đường cong cơ thể một cách hoàn hảo, giúp bạn tự tin tỏa sáng trong mọi sự kiện.</p>
+                <p>Chất liệu vải co giãn cao cấp không chỉ mang lại sự thoải mái mà còn giúp bạn dễ dàng di chuyển. Váy ôm body có nhiều kiểu dáng và màu sắc đa dạng, từ những gam màu trầm ấm đến những tông màu nổi bật, phù hợp với nhiều phong cách khác nhau.</p>
+                <p>Váy ôm body rất dễ phối hợp với các phụ kiện thời trang như giày cao gót, túi xách và trang sức, giúp bạn tạo nên những bộ trang phục hoàn hảo cho buổi tiệc, hẹn hò hay dạo phố. Hãy để chiếc váy này trở thành một phần không thể thiếu trong tủ đồ của bạn, giúp bạn luôn nổi bật và thu hút mọi ánh nhìn.</p>
+            </div>
+            </div>
+           </div>
+          </div>
+
+          <!-- Popup -->
+          <div id="popup" class="popup glass">
+            <div class="popup-content glass">
+                <span class="close-btn"></span>
+                <h2>Thông tin giao hàng</h2>
+                <form id="order-form">
+                    <label for="name">Tên:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="phone">Số điện thoại:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="address">Địa chỉ giao hàng:</label>
+                    <input type="text" id="address" name="address" required>
+                    <div class="popup-buttons">
+                        <button type="submit">Xác nhận</button>
+                        <button type="button" class="cancel-btn">Hủy</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+<script>
+      document.querySelector('.buy-now').addEventListener('click', function() {
+    document.getElementById('popup').style.display = 'block';
+  });
+
+  document.querySelector('.close-btn').addEventListener('click', function() {
+    document.getElementById('popup').style.display = 'none';
+  });
+
+  document.querySelector('.cancel-btn').addEventListener('click', function() {
+    document.getElementById('popup').style.display = 'none';
+  });
+ // cập nhật giá
+document.querySelectorAll('.size-option').forEach(option => {
+    option.addEventListener('click', () => {
+        // Xóa class selected cũ
+        document.querySelectorAll('.size-option').forEach(el => el.classList.remove('selected'));
+
+        // Thêm class selected vào nút vừa bấm
+        option.classList.add('selected');
+
+        // Cập nhật giá
+        const price = option.getAttribute('data-price');
+        document.getElementById('price').innerText = Number(price).toLocaleString('vi-VN');
+    });
+});
+
+
+  // Đóng popup khi nhấn ra ngoài cửa sổ popup
+  window.onclick = function(event) {
+    const popup = document.getElementById('popup');
+    if (event.target === popup) {
+      popup.style.display = 'none';
+    }
+  };
+
+  // Xử lý gửi form (có thể tùy chỉnh theo yêu cầu)
+  document.getElementById('order-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Lấy thông tin từ form (nếu cần)
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+
+    // Hiển thị thông báo đặt hàng thành công
+    alert('Đặt hàng thành công! Cảm ơn ' + name + ' đã đặt hàng. Chúng tôi sẽ liên hệ với bạn qua số điện thoại ' + phone + '.');
+
+    // Đóng popup
+    document.getElementById('popup').style.display = 'none';
+
+    // Nếu cần, có thể reset form
+    document.getElementById('order-form').reset();
+  });
+</script>
+
+<script>
+
+ 
+         document.querySelectorAll('.size-option').forEach(item => {
+             item.addEventListener('click', event => {
+                 document.querySelectorAll('.size-option').forEach(el => el.classList.remove('selected'));
+                 item.classList.add('selected');
+             });
+         });
+   </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-column">
+            <h3>Tiệm Vụn Vàng</h3>
+            <p>437-439-441-443-445-447-449-451 Nguyễn Trãi , Phường 7 , Q5<br><br><br>
+                Hotline : 0909544054 - 0906860300</p>
+            <p>Tìm chúng tôi tại đây:</p>
+            <div class="social-links">
+                <a href="/https://www.facebook.com/SuSuShopQ5?mibextid=LQQJ4d"><i class="fab fa-facebook-f"></i></a>
+                <a href="/https://www.facebook.com/SuSuShopQ5?mibextid=LQQJ4d"><i class="fab fa-instagram"></i></a>
+                <a href="/https://www.facebook.com/SuSuShopQ5?mibextid=LQQJ4d"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </div>
+        <div class="footer-column">
+            <h3>Về chúng tôi</h3>
+            <a href="/introduction.html">Giới thiệu</a>
+            <a href="/products.html">Sản phẩm</a>
+            <a href="/https://www.facebook.com/SuSuShopQ5?mibextid=LQQJ4d">Liên hệ với chúng tôi</a>
+        </div>
+        <div class="footer-column">
+            <h3>Hỗ trợ</h3>
+            <a href="/#">Pháp lý & Bảo mật</a>
+            <a href="/#">Thanh toán</a>
+            <a href="/#">Thông tin giao hàng</a>
+            <a href="/#">FAQs</a>
+        </div>
+        <div class="footer-column">
+            <h3>Đừng bỏ lỡ thông tin</h3>
+            <p>Nhập E-mail để nhận thông tin sớm nhất về các sản phẩm mới của chúng tôi. </p>
+            <div class="newsletter">
+                <input type="email" placeholder="Nhập E-mail của bạn">
+                <button><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        <p>© All right reserved. Su Su Shop 2024</p>
+    </div>
+    <script src="/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</body>
+</html>

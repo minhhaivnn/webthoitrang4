@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="navbar glass2">
+        <a href="index.html">
+        <div class="logo">
+            <img src="./images/trangchu/logo1.jpg" alt="">
+        </div>
+        </a>
+        <div class="menu">
+            <a href="index.html" class="nav-link">Trang chủ</a>
+            <a href="introduction.html" class="nav-link">Giới thiệu</a>
+            <a href="products.html" class="nav-link">Sản phẩm</a>        
+        </div>
+        <div class="icons">
+            <a href="login.html"><i class="fas fa-user"></i></a>
+        </div>
+    </div>   
+
+    <div class="container-login">
+        <div class="left">
+         <img src="/images/Login_Regis/150ppi/register.png"/>
+        </div>
+        <div class="right registrationForm">
+         <form id="registrationForm">
+            <h2>
+                CHÀO MỪNG <br> ĐẾN VỚI TIỆM VỤN VÀNG
+            </h2>
+            <h1>
+                ĐĂNG KÝ
+            </h1>
+          <label for="username">
+            Tên tài khoản:
+          </label>
+          <input id="username" type="text" required>
+          <label for="password">
+            Mật Khẩu:
+          </label>
+          <input id="password" type="password" required>
+          <label for="password">
+            Nhập lại mật Khẩu:
+          </label>
+          <input id="passwordconf" type="password" required>
+          <button type="submit">
+           Đăng ký
+          </button>
+          <a class="create-account" href="login.html">
+           Đã có tài khoản? Đăng nhập ngay!
+          </a>
+         </form>
+        </div>
+       </div>
+
+       <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngăn chặn hành động mặc định của form
+
+            // Lấy dữ liệu từ form
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const passwordconf = document.getElementById('passwordconf').value;
+
+            // Lưu dữ liệu vào localStorage
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            localStorage.setItem('passwordconf', passwordconf);
+
+            if(passwordconf === password) {
+                alert('Đăng ký thành công! Bạn có thể đăng nhập ngay bây giờ.');
+                window.location.href = 'login.html'; // Chuyển hướng đến trang đăng nhập
+            }
+            else {
+                alert('Đăng ký thất bại! Vui lòng kiểm tra lại mật khẩu.');
+            }
+        });
+    </script>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-column">
+            <h3>Tiệm Vụng Vàng</h3>
+            <p>437-439-441-443-445-447-449-451 Nguyễn Trãi , Phường 7 , Q5<br><br><br>
+                Hotline : 0909544054 - 0906860300</p>
+            <p>Tìm chúng tôi tại đây:</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/SuSuShopQ5?mibextid=LQQJ4d"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/SuSuShopQ5?mibextid=LQQJ4d"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/SuSuShopQ5?mibextid=LQQJ4d"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </div>
+        <div class="footer-column">
+            <h3>Về chúng tôi</h3>
+            <a href="introduction.html">Giới thiệu</a>
+            <a href="products.html">Sản phẩm</a>
+            <a href="https://www.facebook.com/SuSuShopQ5?mibextid=LQQJ4d">Liên hệ với chúng tôi</a>
+        </div>
+        <div class="footer-column">
+            <h3>Hỗ trợ</h3>
+            <a href="#">Pháp lý & Bảo mật</a>
+            <a href="#">Thanh toán</a>
+            <a href="#">Thông tin giao hàng</a>
+            <a href="#">FAQs</a>
+        </div>
+        <div class="footer-column">
+            <h3>Đừng bỏ lỡ thông tin</h3>
+            <p>Nhập E-mail để nhận thông tin sớm nhất về các sản phẩm mới của chúng tôi. </p>
+            <div class="newsletter">
+                <input type="email" placeholder="Nhập E-mail của bạn">
+                <button><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        <p>© All right reserved. Su Su Shop 2024</p>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</body>
+</html>
